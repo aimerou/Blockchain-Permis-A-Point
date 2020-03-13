@@ -1,0 +1,192 @@
+
+ {% load static %}
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   <title>Projet MongoDB</title> 
+   <link rel="icon" href="{% static 'img/Fevicon.png' %}" type="image/png">
+
+   <link rel="stylesheet" href="{% static 'vendors/bootstrap/bootstrap.min.css' %}">
+   <link rel="stylesheet" href="{% static 'vendors/fontawesome/css/all.min.css' %}">
+   <link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' % }">
+   <link rel="stylesheet" href="{% static 'vendors/linericon/style.css' %}">
+   <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.theme.default.min.css' %}">
+   <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.carousel.min.css' %}">
+   <link rel="stylesheet" href="{% static 'vendors/flat-icon/font/flaticon.css' %}">
+   <link rel="stylesheet" href="{% static 'vendors/nice-select/nice-select.css' %}">
+ 
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   <link rel="stylesheet" href="{% static 'css/css.css' %}">
+
+
+   <style>
+    body {
+        position: relative; 
+    } 
+    
+    #permis{padding-top:50px;height:500px;color: #fff; background-color: #3a42b7af;}
+     
+    </style>
+  
+ </head>
+ <body class="container-fluid">
+
+    <nav id="myNavbar" class="navbar navbar-inverse">  
+      <a class="navbar-brand" href="#">WebSiteName</a>
+         
+        <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#permis">Permis à points</a>
+        </li>
+        <li class="active nav-item">
+            <a class="nav-link" href="#infractions">Infractions & législations</a>
+        </li> 
+
+        </ul> 
+
+        <ul class="nav  navbar-right">
+        <li class="nav-item"><a class="nav-link" href="{% url 'authentification1' %}"><span class="fas fa-user"></span> S'authentifier</a></li>
+        <li class="nav-item"> <a class="nav-link" href="{% url 'login' %}"><span class="fas fa-sign-in-alt"></span> Se connecter</a></li>
+        </ul>  
+    
+    </nav> 
+
+  <section data-spy="scroll" data-target="#myNavbar" data-offset="0">
+
+    <section class="hero-banner magic-ball" id="home">
+        <div class="container">
+    
+          <div class="row align-items-center text-center text-md-left">
+            <div class="col-md-6 col-lg-5 mb-5 mb-md-0">
+              <h1>Bienvenue à votre plateforme de gestion des permis à points</h1>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia eligendi molestias laboriosam odit animi, maiores magnam veritatis vero dolorum recusandae voluptates! Ratione quibusdam, quaerat nostrum fugit repellendus est qui laudantium. </p>
+              <a class="button button-hero mt-4" href="{% url 'login' %}">Se connecter</a>
+            </div>
+            <div class="col-md-6 col-lg-7 col-xl-6 offset-xl-1">
+              <img class="img-fluid" src="{% static 'img/permis/points.jpeg' %}" style=width:100% alt="">
+            </div>
+          </div>
+        </div>
+      </section>
+
+        <!--================Permis à points =================-->
+  <section class="bg-gray section-padding magic-ball magic-ball-about" id="permis">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7 col-md-6 mb-4 mb-md-0">
+          <div class="about-img">
+            <img class="img-fluid" src="{% static 'img/permis/permis.jpeg' %}" style=width:100% alt="">
+          </div>
+        </div>
+        <div class="col-lg-5 col-md-6 align-self-center about-content">
+          <h2>Le point <br class="d-none d-xl-block"> sur<br class="d-none d-xl-block"> les permis à points</h2>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Ratione repudiandae eligendi repellat aut. Nulla esse voluptatibus qui temporibus, suscipit laborum similique minus nostrum laboriosam, sit, sapiente consequuntur deleniti! Deserunt, consectetur.</p>
+          <a class="button" href="#">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--===============End of permis à points =================--> 
+
+   <!--================Infractions =================-->
+   <section class="section-margin generic-margin" id="infractions">
+    <div class="container">
+      <div class="section-intro text-center pb-90px">
+        <img class="section-intro-img" src="{% static 'img/permis/auto.jpeg' %}" alt="">
+        <h2>Nul n'est au-dessus de la loi</h2>
+        <p>Découvrez ici les actes à ne pas faire sur la route et maximisez vos points </p>
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+          <div class="service-card text-center">
+            <div class="service-card-img">
+              <img class="img-fluid" src="{% static 'img/permis/infraction.jpeg' %} "  alt="">
+            </div>
+            <div class="service-card-body">
+              <h3>infraction</h3>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facilis aliquam ab expedita molestiae sequi non asperiores tempore assumenda ipsam ipsum error, velit voluptatem, ipsa rerum corporis, sapiente quod soluta? Animi?</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+          <div class="service-card text-center">
+            <div class="service-card-img">
+              <img class="img-fluid" src="{% static 'img/permis/avis.jpeg' %}"  alt="">
+            </div>
+            <div class="service-card-body">
+              <h3>Avis de contravention</h3>
+              <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas atque impedit magni ab officia nostrum, aut quae ullam expedita eius obcaecati maxime. Dolorum at, libero possimus labore veniam non natus.</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 mb-4 mb-lg-0">
+          <div class="service-card text-center">
+            <div class="service-card-img">
+              <img class="img-fluid" src="{% static 'img/permis/retir.jpeg' %}"  alt="">
+            </div>
+            <div class="service-card-body">
+              <h3>Retrait de points</h3>
+              <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Hic error quam id? Amet error saepe ratione, corporis, at officiis laborum consequuntur, in ea reiciendis quasi fugit eum voluptates itaque voluptatem?</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--================End of infractions =================-->
+
+</section>
+
+  <!-- ================ start footer Area ================= -->
+  <footer class="footer-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3  col-md-6 col-sm-6">
+          <div class="single-footer-widget">
+            <h6>About website</h6>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi obcaecati facilis exercitationem laboriosam! In error inventore aut, debitis nobis sit officiis hic tenetur perspiciatis perferendis accusamus, expedita animi odit laudantium?
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4.col-sm-6"></div>
+
+        <div class="col-lg-3 col-md-4.col-sm-6">
+          <div class="single-footer-widget">
+            <h6>Navigation Links</h6>
+            <div class="row">
+              <div class="col">
+                <ul>
+                  <li><a href="#home">Home</a></li>
+                  <li><a href="#permis">Permis à point</a></li>
+                  <li><a href="#infractions">Infractions et législations</a></li> 
+                </ul>
+              </div> 
+          </div>
+        </div> 		
+      </div>
+    </div>
+      <div class="footer-bottom">
+        <div class="row align-items-center">
+          <p class="col-lg-8 col-sm-12 footer-text m-0 text-center"> 
+              Copyright &copy;<script>document.write(new Date().getFullYear());</script></p>
+  
+        </div>
+      </div>
+    
+  </footer>
+  <!-- ================ End footer Area ================= -->
+
+ </body>
+</html>
+ 
+ 

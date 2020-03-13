@@ -21,15 +21,21 @@ class Permis(models.Model):
     categorie_vehicule = models.CharField(max_length=2)
 
 class Conducteur(models.Model):
-    conducteur = models.ForeignKey('Permis',on_delete=models.CASCADE)
-    date = models.DateTimeField()
+    permis=models.ForeignKey('Permis',on_delete='CASCADE')
+    username=models.CharField(max_length=15)
+    password = models.CharField(max_length=255) 
+    date = models.DateTimeField(auto_now_add=True)
 
 class AgentSecurite(models.Model):
+    username=models.CharField(max_length=15)
+    password = models.CharField(max_length=255)
     prenom = models.CharField(max_length=60)
     nom = models.CharField(max_length=40)
     matricule = models.IntegerField()
 
 class CentreStage(models.Model):
+    username=models.CharField(max_length=15)
+    password = models.CharField(max_length=255)
     nom = models.CharField(max_length=40)
     adresse = models.CharField(max_length=40)
 

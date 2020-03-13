@@ -1,0 +1,29 @@
+{% extends 'blank.html' %}
+{% block 'register'%} 
+
+<form method="post" role="form" action="{% url 'navConducteur' %}">
+    {% csrf_token %}
+
+    <h2 class="text-center">Authentification réussie! Veuillez vous inscrire</h2>
+
+    <div class="form-group">
+        <label for="nom">Nom d'utilisateur:</label>
+        <input type="text"   class="form-control"  placeholder="Choisissez un nom d'utilisateur..." name="username">
+    </div> 
+
+    <div class="form-group">
+        <label for="nom">Mot de passe:</label>
+        <input type="password"   class="form-control"  placeholder="Choisissez un mot de passe..." name="password">
+    </div> 
+
+    <div class="form-group">
+        <label for="nom">Confirmation mot de passe:</label>
+        <input type="password"   class="form-control"  placeholder="Ressaisissez le mot de passe..." name="re_password">
+    </div> 
+
+    <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary">S'inscrire</button>
+    </div>
+
+</form>
+{% endblock %}

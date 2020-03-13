@@ -1,0 +1,111 @@
+
+ {% load static %}
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   <title>Projet MongoDB</title> 
+   <link rel="icon" href="{% static 'img/Fevicon.png' %}" type="image/png">
+
+   <link rel="stylesheet" href="{% static 'vendors/bootstrap/bootstrap.min.css' %}">
+   <link rel="stylesheet" href="{% static 'vendors/fontawesome/css/all.min.css' %}">
+   <link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' % }">
+   <link rel="stylesheet" href="{% static 'vendors/linericon/style.css' %}">
+   <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.theme.default.min.css' %}">
+   <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.carousel.min.css' %}">
+   <link rel="stylesheet" href="{% static 'vendors/flat-icon/font/flaticon.css' %}">
+   <link rel="stylesheet" href="{% static 'vendors/nice-select/nice-select.css' %}">
+ 
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+   <link rel="stylesheet" href="{% static 'css/css.css' %}">
+
+
+   <style>
+    body {
+        position: relative; 
+    } 
+    
+    #permis{padding-top:50px;height:500px;color: #fff; background-color: #3a42b7af;}
+     
+    </style>
+  
+ </head>
+ <body class="container-fluid">
+
+    <nav id="myNavbar" class="navbar navbar-inverse">  
+      <a class="navbar-brand" href="#">WebSiteName</a>
+         
+        <ul class="nav nav-pills">
+        <li class="nav-item">
+            <a class="nav-link" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#permis">Permis à points</a>
+        </li>
+        <li class="active nav-item">
+            <a class="nav-link" href="#infractions">Infractions & législations</a>
+        </li> 
+
+        </ul> 
+
+        <ul class="nav  navbar-right">
+        <li class="nav-item"><a class="nav-link" href="{% url 'authentification1' %}"><span class="fas fa-user"></span> S'authentifier</a></li>
+        <li class="nav-item"> <a class="nav-link" href="{% url 'login' %}"><span class="fas fa-sign-in-alt"></span> Se connecter</a></li>
+        </ul>  
+    
+    </nav> 
+
+    <div class="container-fluid">{% block 'register'%} {% endblock %}</div>
+    <div class="container-fluid">{% block 'login'%} {% endblock %}</div>
+    <div class="container-fluid">{% block 'authentification1'%} {% endblock %}</div>
+    <div class="container-fluid">{% block 'authentification2'%} {% endblock %}</div>
+
+     <!-- ================ start footer Area ================= -->
+  <footer class="footer-area">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-3  col-md-6 col-sm-6">
+          <div class="single-footer-widget">
+            <h6>About website</h6>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fuga ab tenetur aspernatur a accusamus sit dolores, nesciunt provident, tempora qui ipsam laborum. Nulla, dolore voluptatibus expedita sunt eum voluptates et.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-md-4.col-sm-6"></div>
+
+        <div class="col-lg-3 col-md-4.col-sm-6">
+          <div class="single-footer-widget">
+            <h6>Navigation Links</h6>
+            <div class="row">
+              <div class="col">
+                <ul>
+                  <li><a href="#home">Home</a></li>
+                  <li><a href="#permis">Permis à point</a></li>
+                  <li><a href="#infractions">Infractions et législations</a></li> 
+                </ul>
+              </div> 
+          </div>
+        </div> 		
+      </div>
+    </div>
+      <div class="footer-bottom">
+        <div class="row align-items-center">
+          <p class="col-lg-8 col-sm-12 footer-text m-0 text-center"> 
+              Copyright &copy;<script>document.write(new Date().getFullYear());</script></p>
+  
+        </div>
+      </div>
+    
+  </footer>
+  <!-- ================ End footer Area ================= -->
+
+  <script src="{% static 'vendors/jquery/jquery-3.2.1.min.js' %}"></script>
+  <script src="{% static 'vendors/bootstrap/bootstrap.bundle.min.js' %}"></script>
+
+ </body>
+</html>

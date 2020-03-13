@@ -1,0 +1,17 @@
+{% extends 'navConducteur.html' %}
+{% load static %}
+
+{%block 'profile'%}
+<h2 style="text-align:center">Driver Profile</h2>
+
+<div class="card">
+  <img src="{% static 'img/permis/conducteur.jpeg' %}" alt="driver" style="width:100%">
+  <h1 class="text-center"> {{conducteur.permis.prenom}}</h1>
+  
+  <p class="title"> {{conducteur.permis.date_naissance}}</p>
+  <p class="title">Groupe sanguin:</p>
+  <p>{{conducteur.permis.groupe_sanguin}}</p>
+ 
+  <p><button>Contact</button></p>
+</div>
+{%endblock%}

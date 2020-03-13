@@ -1,0 +1,40 @@
+{% extends 'blank.html' %}
+{% block 'login'%} 
+
+
+<form method="post" role="form" action="{% url 'logged' %}">
+    {% csrf_token %}
+
+    <h5 class="form-group text-center">
+        {%if erreur%}  {{message}}  {%endif%}
+    </h5>
+    <h4 class="text-center">  Si vous etes conducteur, merci de vous authentifier de prime abord !</h5>
+    
+    <label >Se connecter en tant que:
+
+        <select  class="selectpicker form-control" name="utilisateur">
+        <option value="conducteur" selected>Conducteur</option>
+        <option value="agent">Agent de sécurité</option>
+        <option value="centre">Centre de stage de sensibilisation</option>
+         
+        </select>
+    </label>
+
+    <div class="form-group">
+        <label for="nom">Nom d'utilisateur:</label>
+        <input type="text"   class="form-control"  placeholder="Saisissez votre nom d'utilisateur..." name="username">
+    </div> 
+
+    <div class="form-group">
+        <label for="nom">Mot de passe:</label>
+        <input type="password"   class="form-control"  placeholder="Saisissez votre mot de passe..." name="password">
+    </div> 
+ 
+
+    <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary">Se connecter</button>
+    </div>
+
+</form>
+
+{% endblock %} 
