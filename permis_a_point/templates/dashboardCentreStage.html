@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Tableau de bord Agent de la sécurité</title>
+</head>
+<body>
+    <form action="{% url 'envoiAttestation' %}">
+        <p>Attestation de réussite à un stage</p>
+        <label>Stagiaire</label>
+        <input type="text" placeholder="Stagiaire" name="stagiaire">
+        <label>Contenu</label>
+        <input type="text" placeholder="Corps de l'attestation'" name="contenu">
+        <input type="submit" value="Soumettre">
+    </form>
+</body>
+</html>

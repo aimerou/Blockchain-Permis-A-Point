@@ -3,18 +3,15 @@ from . import views
 
 urlpatterns = [
      path('accueil', views.Accueil, name='accueil'),
-     path('inscription', views.Inscription, name='inscription'), 
-
-     path('authentification1',views.toauthenticate,name='authentification1'),
-     path('authentification2',views.auth_conducteur,name='authentification2'),
-     path('register',views.auth_conducteur2,name='register'),
-     path('conducteur',views.register,name='navConducteur'),
+     path('soldePoints', views.SoldePoints, name='soldePoints'),
+     path('conducteur/contraventions', views.Contraventions, name='contraventions'),
+     path('conducteur/attestations', views.Attestations, name='attestations'),
+     path('agent/contraventionEnvoyee', views.EnvoiContravention, name='envoi_contravention'),
+     path('centre/attestationEnvoyee', views.EnvoiAttestation, name='envoi_attestation'),
+     path('permis/authentification1',views.toauthenticate,name='authentification1'),
+     path('permis/authentification2',views.auth_permis,name='authentification2'),
+     path('register',views.auth_permis2,name='register'),
      path('login',views.login,name='login'),
-
-     path('bienvenue',views.logged,name='logged'), 
-
-     path('index',views.index),
-      
-     path('profile',views.profile,name='profile'),
-      
+     path('bienvenue',views.logged,name='logged'),
+     path('conducteur/profile',views.profile,name='profile'),
 ]

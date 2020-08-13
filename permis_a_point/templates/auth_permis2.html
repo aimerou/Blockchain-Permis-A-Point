@@ -1,0 +1,39 @@
+{% extends 'blank.html' %}
+{% block 'authentification2'%} 
+
+<form method="post" role="form" action="{% url 'register' %}">
+    {% csrf_token %}
+
+    <h5 class="form-group text-center">
+        {%if erreur%}  {{message}}  {%endif%}
+    </h5>
+
+    <h2>Informations relatives à votre permis</h2>
+
+    <div class="form-group">
+        <label for="nom">Numéro de permis:</label>
+        <input type="number"   class="form-control"  placeholder="Entrez le numero de votre permis..." name="numero">
+    </div> 
+    
+    <div class="form-group">
+        <label for="nom">Date de délivrance:</label>
+        <input type="date"   class="form-control"  placeholder="Entrez la date de délivrance de votre permis...." name="date_delivrance">
+    </div> 
+
+
+    <div class="form-group">
+        <label for="nom">Date d'expiration:</label>
+        <input type="date"   class="form-control"  placeholder="Entrez la date d'expiration de votre permis...." name="date_expiration">
+    </div> 
+
+    <div class="form-group">
+        <label for="nom">Categorie de véhicule:</label>
+        <input type="text"   class="form-control"  placeholder="les categories de véhicule que vous conduisez...." name="categorie_vehicule">
+    </div> 
+
+    <div class="form-group text-center">
+        <button type="submit" class="btn btn-primary">S'authentifier</button>
+    </div> 
+</form>
+ 
+{% endblock %} 

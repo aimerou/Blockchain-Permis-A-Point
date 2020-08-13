@@ -35,22 +35,22 @@
         <li class="nav-item ">
           <a class="nav-link" href="#">About<span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Transactions</a>
-        </li>
         
         <li class="nav-item">
-            <a class="nav-link " href="#">Attestaions de réussite</a>
-          </li>
-         
+            <a class="nav-link " href="attestation">Nouvelle Attestation</a>
+        </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="type to search......" aria-label="Search">
-        <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
     </div>
   </nav>
 
+  <form method="post" role="form" action="{% url 'envoi_attestation' %}">
+    <div class="form-group" id="attestation">
+          <label for="stagiaire">Stagiaire:</label>
+          <input type="text" class="form-control" placeholder="Saisissez le nom du stagiaire" name="stagiaire">
+          <label for="contenu">Contenu:</label>
+          <input type="text" class="form-control" placeholder="Rédigez le contenu de l'attestation'" name="contenu">
+    </div>
+  </form>
 
   <!-- Footer -->
   <footer class=" footer-bottom bg-black">
