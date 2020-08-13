@@ -33,30 +33,24 @@
     </style>
   
  </head>
- <body class="container-fluid">
+ <body>
 
-    <nav id="myNavbar" class="navbar navbar-inverse">  
-      <a class="navbar-brand" href="#">WebSiteName</a>
-         
-        <ul class="nav nav-pills">
-        <li class="nav-item">
-            <a class="nav-link" href="#home">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#permis">Permis à points</a>
-        </li>
-        <li class="active nav-item">
-            <a class="nav-link" href="#infractions">Infractions & législations</a>
-        </li> 
+  <nav id="myNavbar" class="navbar navbar-dark bg-primary">  
+    <a class="navbar-brand" href="#">PermisAPoint</a>
+       
+      <ul class="nav nav-pills">
+      <li class="nav-item">
+          <a class="nav-link" href="{% url 'accueil' %}" style="color: #fff;">Home</a>
+      </li>
 
-        </ul> 
+      </ul> 
 
-        <ul class="nav  navbar-right">
-        <li class="nav-item"><a class="nav-link" href="{% url 'authentification1' %}"><span class="fas fa-user"></span> S'authentifier</a></li>
-        <li class="nav-item"> <a class="nav-link" href="{% url 'choice_login' %}"><span class="fas fa-sign-in-alt"></span> Se connecter</a></li>
-        </ul>  
-    
-    </nav> 
+      <ul class="nav  navbar-right">
+      <li class="nav-item"><a class="nav-link" href="{% url 'authentification1' %}" style="color: #fff;"><span class="fas fa-user"></span> S'authentifier</a></li>
+      <li class="nav-item"> <a class="nav-link" href="{% url 'choice_login' %}" style="color: #fff;"><span class="fas fa-sign-in-alt"></span> Se connecter</a></li>
+      </ul>  
+  
+  </nav> 
 
     <div class="container-fluid">{% block 'register'%} {% endblock %}</div>
     <div class="container-fluid">{% block 'login'%} {% endblock %}</div>

@@ -22,7 +22,7 @@
    <link rel="stylesheet" href="{% static 'css/css.css' %}">
  
  </head>
- <body class="container-fluid"> 
+ <body> 
 
 <nav class="navbar navbar-expand-lg  navbar-dark bg-primary">
     <a class="navbar-brand" href="#">Website Name</a>
@@ -32,23 +32,26 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'accueil' %}" style="color: #fff;">Déconnexion</a>
+        </li>
         <li class="nav-item ">
-          <a class="nav-link" href="{%url 'profile'%}">Mon Profil<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="{%url 'profile'%}" style="color: #fff;">Mon Profil<span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Transactions</a>
+          <a class="nav-link" href="#" style="color: #fff;">Transactions</a>
         </li>
        
         <li class="nav-item">
-          <a class="nav-link " href="#">Contraventions</a>
+          <a class="nav-link " href="#" style="color: #fff;">Contraventions</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link " href="#">Attestations de réussite</a>
+            <a class="nav-link " href="#" style="color: #fff;">Attestations de réussite</a>
           </li>
         
         <li class="nav-item">
-            <a class="nav-link " href="#">Notifications</a>
+            <a class="nav-link " href="#" style="color: #fff;">Notifications</a>
           </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">

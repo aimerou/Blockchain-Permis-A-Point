@@ -20,7 +20,7 @@
    <link rel="stylesheet" href="{% static 'vendors/nice-select/nice-select.css' %}">
  
    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-   <link rel="stylesheet" href="{% static 'css/css.css' %}">
+   <link rel="stylesheet" href="{% static 'css/mycss.css' %}">
 
 
    <style>
@@ -33,27 +33,27 @@
     </style>
   
  </head>
- <body class="container-fluid">
+ <body>
 
-    <nav id="myNavbar" class="navbar navbar-inverse">  
-      <a class="navbar-brand" href="#">WebSiteName</a>
+    <nav id="myNavbar" class="navbar fixed-top navbar-dark bg-primary">  
+      <a class="navbar-brand" href="#">PermisAPoint</a>
          
         <ul class="nav nav-pills">
         <li class="nav-item">
-            <a class="nav-link" href="#home">Home</a>
+            <a class="nav-link" href="#home" style="color: #fff;">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#permis">Permis à points</a>
+            <a class="nav-link" href="#permis" style="color: #fff;">Permis à points</a>
         </li>
         <li class="active nav-item">
-            <a class="nav-link" href="#infractions">Infractions & législations</a>
+            <a class="nav-link" href="#infractions" style="color: #fff;">Infractions & législations</a>
         </li> 
 
         </ul> 
 
         <ul class="nav  navbar-right">
-        <li class="nav-item"><a class="nav-link" href="{% url 'authentification1' %}"><span class="fas fa-user"></span> S'authentifier</a></li>
-        <li class="nav-item"> <a class="nav-link" href="{% url 'choice_login' %}"><span class="fas fa-sign-in-alt"></span> Se connecter</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'authentification1' %}" style="color: #fff;"><span class="fas fa-user"></span> S'authentifier</a></li>
+        <li class="nav-item"> <a class="nav-link" href="{% url 'choice_login' %}" style="color: #fff;"><span class="fas fa-sign-in-alt"></span> Se connecter</a></li>
         </ul>  
     
     </nav> 
@@ -64,17 +64,20 @@
         <div class="container">
     
           <div class="row align-items-center text-center text-md-left">
-            <div class="col-md-6 col-lg-5 mb-5 mb-md-0">
-              <h1>Bienvenue à votre plateforme de gestion des permis à points</h1>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia eligendi molestias laboriosam odit animi, maiores magnam veritatis vero dolorum recusandae voluptates! Ratione quibusdam, quaerat nostrum fugit repellendus est qui laudantium. </p>
-              <a class="button button-hero mt-4" href="{% url 'login' %}">Se connecter</a>
+            <div class="row">
+              <div class="col-md-12">
+                <h1 style="color: #fff;text-align: center;">Bienvenue sur la plateforme de gestion des permis à points</h1>
+              </div>
+              <div class="offset-md-5 col-md-3" style="margin-bottom: 20px;">
+                <a class="button button-hero" href="{% url 'choice_login' %}">Se connecter</a>
+              </div>
             </div>
-            <div class="col-md-6 col-lg-7 col-xl-6 offset-xl-1">
-              <img class="img-fluid" src="{% static 'img/permis/points.jpeg' %}" style=width:100% alt="">
+            <div class="offset-md-3 col-md-6" style="margin-bottom: 20px;">
+              <img class="img-fluid" src="{% static 'img/permis/permis1.jpeg' %}" style="width:100%; border-radius: 25%;" alt="">
             </div>
           </div>
         </div>
-      </section>
+    </section>
 
         <!--================Permis à points =================-->
   <section class="bg-gray section-padding magic-ball magic-ball-about" id="permis">

@@ -22,7 +22,7 @@
    <link rel="stylesheet" href="{% static 'css/css.css' %}">
  
 </head>
-<body class="container-fluid"> 
+<body> 
 
   <nav class="navbar navbar-expand-lg  navbar-dark bg-primary">
     <a class="navbar-brand" href="#">Website Name</a>
@@ -32,12 +32,16 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'accueil' %}" style="color: #fff;">Déconnexion</a>
+        </li>
+        
         <li class="nav-item ">
-          <a class="nav-link" href="#">About<span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="#" style="color: #fff;">About<span class="sr-only">(current)</span></a>
         </li>
        
         <li class="nav-item">
-          <a class="nav-link " href="#contravention">Nouvelle Contravention</a>
+          <a class="nav-link " href="#contravention" style="color: #fff;">Nouvelle Contravention</a>
         </li>
       </ul>
     </div>
