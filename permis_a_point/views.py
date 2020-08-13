@@ -39,35 +39,42 @@ def auth_permis2(request):
     message='Vérifiez ce que vous avez saisi'
     return render(request,'auth_permis2.html',locals())
 
+def Choice_login(request):
+    return render(request,'choice_login.html')
 
 def login(request):
-    return render(request,'login.html') 
-
-def logged(request):
     utilisateur=request.POST['utilisateur']
+    return render(request,'login.html',locals()) 
+
+def logged_conducteur(request):
     username=request.POST['username']
     password=request.POST['password']
     message='Vérifiez ce que vous avez saisi'
-    if utilisateur=='conducteur':
-        if(Conducteur.objects.filter(username=username)):
-            if(Conducteur.objects.filter(password=password)):
-                return render(request,'navConducteur.html') 
+    if(Conducteur.objects.filter(username=username) and Conducteur.objects.filter(password=password)):
+        return render(request,'navConducteur.html') 
+    else:
         erreur=True 
         return render(request,'login.html',locals())     
-    
-    if utilisateur=='agent':
-        if(AgentSecurite.objects.filter(username=username)):
-            if(AgentSecurite.objects.filter(password=password)):
-                return render(request,'navAgent.html') 
+
+def logged_agent(request):
+    username=request.POST['username']
+    password=request.POST['password']
+    message='Vérifiez ce que vous avez saisi'    
+    if(AgentSecurite.objects.filter(username=username) and AgentSecurite.objects.filter(password=password)):
+        return render(request,'navAgent.html') 
+    else:
         erreur=True 
         return render(request,'login.html',locals())
 
-    if utilisateur=='centre':
-        if(CentreStage.objects.filter(username=username)):
-            if(CentreStage.objects.filter(password=password)):
-                return render(request,'navCentre.html') 
+def logged_centre(request):
+    name=request.POST['username']
+    password=request.POST['password']
+    message='Vérifiez ce que vous avez saisi'
+    if(CentreStage.objects.filter(nom=name) and CentreStage.objects.filter(password=password)):
+        return render(request,'navCentre.html') 
+    else:
         erreur=True 
-        return render(request,'login.html',locals()) 
+        return render(request,'login.html',locals())
 
 def register(request):
     username=request.POST['username']

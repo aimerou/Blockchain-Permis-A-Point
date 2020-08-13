@@ -1,32 +1,30 @@
 {% extends 'blank.html' %}
 {% block 'login'%} 
 
+{%if utilisateur == "conducteur"%}
+    <form method="post" role="form" action="{% url 'logged_conducteur' %}">
+    <h4 class="text-center">  Si vous etes conducteur, merci de vous authentifier de prime abord !</h4>
+{%elif utilisateur == "agent"%}
+    <form method="post" role="form" action="{% url 'logged_agent' %}">
+    <h4 class="text-center"> Bienvenue monsieur l'agent, veuillez entrez vos informations !</h4>
+{%elif utilisateur == "centre"%}
+    <form method="post" role="form" action="{% url 'logged_centre' %}">
+    <h4 class="text-center"> Veuillez renseigner les informations du centre de stage !</h4>
+{%endif%}
 
-<form method="post" role="form" action="{% url 'logged' %}">
     {% csrf_token %}
 
     <h5 class="form-group text-center">
         {%if erreur%}  {{message}}  {%endif%}
     </h5>
-    <h4 class="text-center">  Si vous etes conducteur, merci de vous authentifier de prime abord !</h5>
-    
-    <label >Se connecter en tant que:
-
-        <select  class="selectpicker form-control" name="utilisateur">
-        <option value="conducteur" selected>Conducteur</option>
-        <option value="agent">Agent de sécurité</option>
-        <option value="centre">Centre de stage de sensibilisation</option>
-         
-        </select>
-    </label>
 
     <div class="form-group">
-        <label for="nom">Nom d'utilisateur:</label>
+        <label for="username">Nom d'utilisateur:</label>
         <input type="text"   class="form-control"  placeholder="Saisissez votre nom d'utilisateur..." name="username">
     </div> 
 
     <div class="form-group">
-        <label for="nom">Mot de passe:</label>
+        <label for="password">Mot de passe:</label>
         <input type="password"   class="form-control"  placeholder="Saisissez votre mot de passe..." name="password">
     </div> 
  

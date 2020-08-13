@@ -1,0 +1,16 @@
+{% extends 'blank.html' %}
+{% block 'login'%} 
+
+<form method="post" role="form" action="{% url 'login' %}">
+    {% csrf_token %}
+    <label for="utilisateur" >Se connecter en tant que:
+    <select class="selectpicker form-control" name="utilisateur">
+        <option value="conducteur" selected>Conducteur</option>
+        <option value="agent">Agent de sécurité</option>
+        <option value="centre">Centre de stage de sensibilisation</option>
+    </select>
+
+    <button type="submit" class="btn btn-primary">Valider</button>
+</form>
+
+{% endblock %} 
