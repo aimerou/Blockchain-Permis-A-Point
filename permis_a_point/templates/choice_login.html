@@ -1,16 +1,28 @@
 {% extends 'blank.html' %}
 {% block 'login'%} 
 
-<form method="post" role="form" action="{% url 'login' %}">
-    {% csrf_token %}
-    <label for="utilisateur" >Se connecter en tant que:
-    <select class="selectpicker form-control" name="utilisateur">
-        <option value="conducteur" selected>Conducteur</option>
-        <option value="agent">Agent de sécurité</option>
-        <option value="centre">Centre de stage de sensibilisation</option>
-    </select>
+{% load static %}
 
-    <button type="submit" class="btn btn-primary">Valider</button>
-</form>
+<div class="row align-items-center" style="margin-top: 30px;">
+    <div class="offset-md-3 col-md-6 offset-md-3">
+        <h2 style="text-align: center;">Veuillez choisir votre profil de connexion!</h2>
+        <form method="post" class="form-group" role="form" action="{% url 'login' %}">
+            {% csrf_token %}
+            <label for="utilisateur" >Se connecter en tant que:</label>
+            <select class="selectpicker form-control" name="utilisateur">
+                <option value="conducteur" selected>Conducteur</option>
+                <option value="agent">Agent de sécurité</option>
+                <option value="centre">Centre de stage de sensibilisation</option>
+            </select>
+    
+            <center><button type="submit" style="margin-top: 20px;" class="btn btn-primary">Valider</button></center>
+        </form>
+        <div class="offset-md-3 col-md-9">
+            <div class="about-img">
+              <img class="img-fluid" src="{% static 'img/permis/profil1.jpg' %}" style=width:100% alt="">
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %} 

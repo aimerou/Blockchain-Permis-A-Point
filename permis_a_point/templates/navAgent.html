@@ -32,10 +32,6 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'accueil' %}" style="color: #fff;">Déconnexion</a>
-        </li>
-        
         <li class="nav-item ">
           <a class="nav-link" href="#" style="color: #fff;">About<span class="sr-only">(current)</span></a>
         </li>
@@ -43,27 +39,35 @@
         <li class="nav-item">
           <a class="nav-link " href="#contravention" style="color: #fff;">Nouvelle Contravention</a>
         </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'accueil' %}" style="color: #fff;">Déconnexion</a>
+        </li>
       </ul>
     </div>
   </nav>
 
-  <form method="post" role="form" action="{% url 'envoi_contravention' %}">
-    <div class="form-group" id="contravention">
-          <label for="destinataire">Destinataire:</label>
-          <input type="text" class="form-control" placeholder="Saisissez le nom du conducteur" name="destinataire">
-          <label for="categorie">Categorie:</label>
-          <select name="categorie" class="form-control">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="6">6</option>
-              <option value="8">8</option>
-          </select>
-          <label for="contenu">Contenu:</label>
-          <textarea class="form-control" placeholder="Rédigez le contenu de la contravention" name="contenu"></textarea>
+  <div class="row align-items-center" style="margin-top: 30px;">
+    <div class="offset-md-3 col-md-6 offset-md-3">
+      <form method="post" role="form" action="{% url 'envoi_contravention' %}">
+        <div class="form-group" id="contravention">
+              <label for="destinataire">Destinataire:</label>
+              <input type="text" class="form-control" placeholder="Saisissez le nom du conducteur" name="destinataire">
+              <label for="categorie">Categorie:</label>
+              <select name="categorie" class="form-control">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="6">6</option>
+                  <option value="8">8</option>
+              </select>
+              <label for="contenu">Contenu:</label>
+              <textarea class="form-control" placeholder="Rédigez le contenu de la contravention" name="contenu"></textarea>
+        </div>
+      </form>
     </div>
-  </form>
+  </div>
 
    <!-- Footer -->
    <footer class="footer-area">

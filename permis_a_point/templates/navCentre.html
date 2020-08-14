@@ -32,10 +32,6 @@
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'accueil' %}" style="color: #fff;">Déconnexion</a>
-        </li>
-        
         <li class="nav-item ">
           <a class="nav-link" href="#" style="color: #fff;">About<span class="sr-only">(current)</span></a>
         </li>
@@ -43,18 +39,26 @@
         <li class="nav-item">
             <a class="nav-link " href="#attestation" style="color: #fff;">Nouvelle Attestation</a>
         </li>
+        
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'accueil' %}" style="color: #fff;">Déconnexion</a>
+        </li>
       </ul>
     </div>
   </nav>
 
-  <form method="post" role="form" action="{% url 'envoi_attestation' %}">
-    <div class="form-group" id="attestation">
-          <label for="stagiaire">Stagiaire:</label>
-          <input type="text" class="form-control" placeholder="Saisissez le nom du stagiaire" name="stagiaire">
-          <label for="contenu">Contenu:</label>
-          <textarea class="form-control" placeholder="Rédigez le contenu de l'attestation'" name="contenu"></textarea>
+  <div class="row align-items-center" style="margin-top: 30px;">
+    <div class="offset-md-3 col-md-6 offset-md-3">
+      <form method="post" role="form" action="{% url 'envoi_attestation' %}">
+        <div class="form-group" id="attestation">
+              <label for="stagiaire">Stagiaire:</label>
+              <input type="text" class="form-control" placeholder="Saisissez le nom du stagiaire" name="stagiaire">
+              <label for="contenu">Contenu:</label>
+              <textarea class="form-control" placeholder="Rédigez le contenu de l'attestation'" name="contenu"></textarea>
+        </div>
+      </form>
     </div>
-  </form>
+  </div>
 
   <!-- Footer -->
   <footer class="footer-area">
