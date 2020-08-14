@@ -1,7 +1,7 @@
 {% extends 'blank.html' %}
 {% block 'authentification2'%} 
 
-<form method="post" role="form" action="{% url 'register' %}">
+<form method="post" role="form" action="{% url 'authentification2' %}">
     {% csrf_token %}
 
     <h5 class="form-group text-center">

@@ -1,7 +1,7 @@
 {% extends 'blank.html' %}
 {% block 'register'%} 
 
-<form method="post" role="form" action="{% url 'navConducteur' %}">
+<form method="post" role="form" action="{% url 'new_conducteur' %}">
     {% csrf_token %}
 
     <h2 class="text-center">Authentification réussie! Veuillez vous inscrire</h2>

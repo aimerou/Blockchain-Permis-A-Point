@@ -7,7 +7,7 @@ def Accueil(request):
 def toauthenticate(request):
     return render(request,'auth_permis.html')
 
-def auth_permis(request):
+def auth_permis1(request):
     nom=request.POST['nom']
     prenom=request.POST['prenom']
     date_naissance=request.POST['date_naissance']
@@ -19,10 +19,10 @@ def auth_permis(request):
             if(Permis.objects.filter(date_naissance=date_naissance)):
                 if (Permis.objects.filter(lieu_naissance=lieu_naissance)):
                     if(Permis.objects.filter(groupe_sanguin=groupe_sanguin)):
-                        return render(request,'auth_conducteur2.html') 
+                        return render(request,'auth_permis2.html') 
     erreur=True
     message='Vérifiez ce que vous avez saisi'
-    return render(request,'auth_permis.html',locals())
+    return render(request,'auth_permis2.html',locals())
 
 def auth_permis2(request):
     numero=request.POST['numero']
@@ -37,7 +37,7 @@ def auth_permis2(request):
                     return render(request,'register.html') 
     erreur=True
     message='Vérifiez ce que vous avez saisi'
-    return render(request,'auth_permis2.html',locals())
+    return render(request,'register.html',locals())
 
 def Choice_login(request):
     return render(request,'choice_login.html')
@@ -82,10 +82,6 @@ def register(request):
     conducteur=Conducteur(username=username,password=password) 
     conducteur.save()
     return render(request,'navConducteur.html')
-
-def profile(request):
-    conducteur=Conducteur.objects.filter(permis__numero='1')
-    return render(request,'profileConducteur.html',locals())
 
 def SoldePoints(request):
     return render(request,'soldePoints.html')

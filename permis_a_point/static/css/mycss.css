@@ -7,3 +7,7 @@
     background-size: cover;
     background-image: url('../img/permis/telechargement1.jpg');
   }
+
+.nav-item :hover{
+    background-color: #0000ff;
+}
