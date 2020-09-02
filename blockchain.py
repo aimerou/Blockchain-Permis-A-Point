@@ -27,19 +27,18 @@ def NewBlock():
                 to_hash = "" + str(transactions) + previous_block.hash_block
                 new_block.hash_block = hashlib.sha256(to_hash.encode()).hexdigest()
                 new_block.save()
-                print("Nouveau block cree!\n")
+                print("Nouveau block cree!")
             else:
-                print("Aucune transaction n a ete effectuee, aucun nouveau bloc cree!\n")
+                print("Aucune transaction n a ete effectuee, aucun nouveau bloc cree!")
             break
 
 adress = "127.0.0.1"
-port = 8000
-while 1:
-    s = socket.socket()
-    try:
-        s.connect((adress, port))
-        print ("Connecte a ", adress, " sur le port ", port, "; le serveur Django est actif!")
+port = 8080
+s = socket.socket()
+try:
+    s.connect((adress, port))
+    print ("\nConnecte a ", adress, " sur le port ", port, "; le serveur Django est actif!")
+    while 1:
         NewBlock()
-    except socket.error:
-        print ("Connection a ", adress, " sur le port ", port, " impossible; le serveur Django est inactif")
-        break
+except socket.error:
+    print ("Connection a ", adress, " sur le port ", port, " impossible; le serveur Django est inactif")
