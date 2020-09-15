@@ -7,7 +7,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
    <title>Projet MongoDB</title> 
-   <link rel="icon" href="{% static 'img/Fevicon.png' %}" type="image/png">
+   <link rel="icon" href="{% static 'img/point.png' %}" type="image/png">
 
    <link rel="stylesheet" href="{% static 'vendors/bootstrap/bootstrap.min.css' %}">
    <link rel="stylesheet" href="{% static 'vendors/fontawesome/css/all.min.css' %}">
@@ -31,33 +31,37 @@
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
+      <ul class="navbar-nav mr-auto"> 
         <li class="nav-item">
-          <a class="nav-link " href="#" style="color: #fff;">Contraventions</a>
+          <a class="nav-link " href="#" style="color: #fff;">Blockchain</a></li>
+
+        <li class="nav-item">
+          <a class="nav-link " href="{% url 'contraventions' username %}" style="color: #fff;">Contraventions</a>
         </li>
 
         <li class="nav-item">
-            <a class="nav-link " href="#" style="color: #fff;">Attestations de réussite</a>
+            <a class="nav-link " href="{% url 'attestations' username %}" style="color: #fff;">Attestations de réussite</a>
           </li>
-        
-        <li class="nav-item">
-            <a class="nav-link " href="#" style="color: #fff;">Notifications</a>
-          </li>
-          
+
         <li class="nav-item">
           <a class="nav-link" href="{% url 'accueil' %}" style="color: #fff;">Déconnexion</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search" placeholder="type to search......" aria-label="Search">
-        <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
-      </form>
+       
     </div>
   </nav>
 
-  <div class="container-fluid">
-    <h2>Votre solde est de ... points.</h2>
+  <div class="container-fluid row">
+    <h2 class="col-md-3 col-xs-12" >{{username }},  votre solde est de ... points.</h2>
+  
+    <div class="col-md-9 col-xs-12">
+      {% block contraventions %} {%endblock%}
+      {% block attestations %} {%endblock%}
+      {% block notifications %} {%endblock%}
+    </div>
   </div>
+
+  
 
 
   <!-- Footer -->
@@ -100,6 +104,9 @@
     
   </footer>
   <!-- End of Footer -->
+
+  <script src="{% static 'vendors/jquery/jquery-3.2.1.min.js' %}"></script>
+  <script src="{% static 'vendors/bootstrap/bootstrap.bundle.min.js' %}"></script>
 
  </body>
  </html>

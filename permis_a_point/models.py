@@ -44,6 +44,7 @@ class Attestation(models.Model):
     stagiaire = models.ForeignKey('Conducteur',on_delete=models.CASCADE)
     date = models.DateField(auto_now_add=True)
     contenu = models.TextField()
+    categorie = models.CharField(max_length=1)
 
 class Contravention(models.Model):
     agent = models.ForeignKey('AgentSecurite',on_delete=models.CASCADE)
