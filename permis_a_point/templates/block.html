@@ -1,0 +1,116 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <title>Blockchain</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link rel="icon" href="{% static 'img/Fevicon.png' %}" type="image/png">
+
+    <link rel="stylesheet" href="{% static 'vendors/bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' % }">
+    <link rel="stylesheet" href="{% static 'vendors/linericon/style.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/flat-icon/font/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/nice-select/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" href="{% static 'img/icons/favicon.ico' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <!--===============================================================================================-->
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg  navbar-dark bg-primary fixed-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item ">
+              <a class="nav-link" href="{% url 'blockchain' %}" style="color: #fff;">Retour à la blockchain<span class="sr-only">(current)</span></a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'accueil' %}" style="color: #fff;">Home</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+
+    <div class="contact1">
+      <div class="container-contact1">
+    
+        <form class="contact1-form validate-form">
+          {% csrf_token %}
+    
+          <span class="contact1-form-title">
+            Bloc N°{{bloc.index}}
+          </span>
+    
+          <label for="categorie"><b>Index</b></label>
+          <div class="wrap-input1 validate-input">
+            <input class="input1" type="text" name="destinataire" value="{{bloc.index}}" disabled>
+            <span class="shadow-input1"></span>
+          </div>
+    
+          <label for="categorie"><b>Date</b></label>
+          <div class="wrap-input1 validate-input">
+            <input class="input1" type="text" name="destinataire" value="{{bloc.date}}" disabled>
+            <span class="shadow-input1"></span>
+          </div>
+
+          <label for="categorie"><b>Données</b></label>
+          <div class="wrap-input1 validate-input">
+            <input class="input1" type="text" name="destinataire" value="{{bloc.donnees}}" disabled>
+            <span class="shadow-input1"></span>
+          </div>
+
+          <label for="categorie"><b>Hash du bloc précédent</b></label>
+          <div class="wrap-input1 validate-input">
+            <input class="input1" type="text" name="destinataire" value="{{bloc.previous_hash}}" disabled>
+            <span class="shadow-input1"></span>
+          </div>
+
+          <label for="categorie"><b>Hash du bloc</b></label>
+          <div class="wrap-input1 validate-input">
+            <input class="input1" type="text" name="destinataire" value="{{bloc.hash_block}}" disabled>
+            <span class="shadow-input1"></span>
+          </div>
+          
+        </form>
+      </div>
+    </div>
+
+    <footer class="footer-area" id="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3  col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                <h6>A propos</h6>
+                <p>
+                  Ce site a été érigé dans le cadre du projet de base de données NoSQL, à l'Ecole Polytechnique de Thiès.
+                </p>
+                </div>
+            </div>   
+          </div>
+        <div class="footer-bottom">
+            <div class="row align-items-center">
+                <p class="col-lg-8 col-sm-12 footer-text m-0 text-center"> 
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script></p>
+            </div>
+        </div>      
+    </footer>
+
+</body>
+</html>

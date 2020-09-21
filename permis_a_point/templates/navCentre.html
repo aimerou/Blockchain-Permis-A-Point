@@ -8,7 +8,6 @@
    
    <title>Projet MongoDB</title> 
    <link rel="icon" href="{% static 'img/Fevicon.png' %}" type="image/png">
-
    <link rel="stylesheet" href="{% static 'vendors/bootstrap/bootstrap.min.css' %}">
    <link rel="stylesheet" href="{% static 'vendors/fontawesome/css/all.min.css' %}">
    <link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' % }">
@@ -17,27 +16,37 @@
    <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.carousel.min.css' %}">
    <link rel="stylesheet" href="{% static 'vendors/flat-icon/font/flaticon.css' %}">
    <link rel="stylesheet" href="{% static 'vendors/nice-select/nice-select.css' %}">
- 
    <link rel="stylesheet" href="{% static 'css/style.css' %}">
    <link rel="stylesheet" href="{% static 'css/css.css' %}">
+
+  <!--===============================================================================================-->
+	<link rel="icon" type="image/png" href="{% static 'img/icons/favicon.ico' %}"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/animate/animate.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/css-hamburgers/hamburgers.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'vendor/select2/select2.min.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+  <!--===============================================================================================-->
  
  </head>
  <body> 
 
-<nav class="navbar navbar-expand-lg  navbar-dark bg-primary">
-    <a class="navbar-brand" href="#">PermisAPoint</a>
+  <nav class="navbar navbar-expand-lg  navbar-dark bg-primary fixed-top">
+    <a class="navbar-brand" href="#">{{ name }}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
   
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item ">
-          <a class="nav-link" href="#" style="color: #fff;">About<span class="sr-only">(current)</span></a>
-        </li>
-        
         <li class="nav-item">
-            <a class="nav-link " href="#attestation" style="color: #fff;">Nouvelle Attestation</a>
+          <li class="nav-item"><a class="nav-link" href="{% url 'blockchain' name %}" style="color: #fff;">Blockchain</a></li>
+        </li>
+
+        <li class="nav-item ">
+          <a class="nav-link" href="#footer" style="color: #fff;">About<span class="sr-only">(current)</span></a>
         </li>
         
         <li class="nav-item">
@@ -47,21 +56,43 @@
     </div>
   </nav>
 
-  <div class="row align-items-center" style="margin-top: 30px;">
-    <div class="offset-md-3 col-md-6 offset-md-3">
-      <form method="post" role="form" action="{% url 'envoi_attestation' %}">
-        <div class="form-group" id="attestation">
-              <label for="stagiaire">Stagiaire:</label>
-              <input type="text" class="form-control" placeholder="Saisissez le nom du stagiaire" name="stagiaire">
-              <label for="contenu">Contenu:</label>
-              <textarea class="form-control" placeholder="Rédigez le contenu de l'attestation'" name="contenu"></textarea>
+  <div class="contact1">
+    <div class="container-contact1">
+      <div class="contact1-pic js-tilt" data-tilt>
+        <img src="{% static 'img/img-01.png' %}" alt="IMG">
+      </div>
+  
+      <form class="contact1-form validate-form" method="post" action="{% url 'envoi_attestation' name %}">
+        {% csrf_token %}
+  
+        <span class="contact1-form-title">
+          Attestation de réussite
+        </span>
+  
+        <div class="wrap-input1 validate-input" data-validate = "Name is required">
+          <input class="input1" type="text" name="stagiaire" placeholder="stagiaire">
+          <span class="shadow-input1"></span>
+        </div>
+  
+        <div class="wrap-input1 validate-input" data-validate = "Contain is required">
+          <textarea class="input1" name="contenu" placeholder="Contenu"></textarea>
+          <span class="shadow-input1"></span>
+        </div>
+  
+        <div class="container-contact1-form-btn">
+          <button class="contact1-form-btn">
+            <span>
+              Envoyer
+              <i class="fa fa-long-arrow-right" aria-hidden="true"></i>
+            </span>
+          </button>
         </div>
       </form>
     </div>
   </div>
 
   <!-- Footer -->
-  <footer class="footer-area">
+  <footer class="footer-area" id="footer">
     <div class="container">
       <div class="row">
         <div class="col-lg-3  col-md-6 col-sm-6">
@@ -73,22 +104,6 @@
           </div>
         </div>
 
-        <div class="col-lg-3 col-md-4.col-sm-6"></div>
-
-        <div class="col-lg-3 col-md-4.col-sm-6">
-          <div class="single-footer-widget">
-            <h6>Liens de Navigation</h6>
-            <div class="row">
-              <div class="col">
-                <ul>
-                  <li><a href="#home">Home</a></li>
-                  <li><a href="#permis">Permis à point</a></li>
-                  <li><a href="#infractions">Infractions et législations</a></li> 
-                </ul>
-              </div> 
-          </div>
-        </div> 		
-      </div>
     </div>
       <div class="footer-bottom">
         <div class="row align-items-center">
@@ -101,5 +116,28 @@
   </footer>
   <!-- End of Footer -->
   
+<!--===============================================================================================-->
+  <script src="{% static 'vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/popper.js' %}"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+  <script src="{% static 'vendor/select2/select2.min.js' %}"></script>
+  <script src="{% static 'vendor/tilt/tilt.jquery.min.js' %}"></script>
+  <script >
+    $('.js-tilt').tilt({
+      scale: 1.1
+    })
+  </script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-23581568-13');
+  </script>
+  <script src="{% static 'js/main_form.js' %}"></script>
+<!--===============================================================================================-->
+
  </body>
  </html>

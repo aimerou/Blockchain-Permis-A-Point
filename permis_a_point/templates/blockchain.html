@@ -1,0 +1,201 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='refresh' content='10'>
+    <title>Blockchain</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <link rel="icon" href="{% static 'img/Fevicon.png' %}" type="image/png">
+
+    <link rel="stylesheet" href="{% static 'vendors/bootstrap/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/fontawesome/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/themify-icons/themify-icons.css' % }">
+    <link rel="stylesheet" href="{% static 'vendors/linericon/style.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.theme.default.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/owl-carousel/owl.carousel.min.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/flat-icon/font/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'vendors/nice-select/nice-select.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/blockchain.css' %}">
+
+</head>
+<body id="body">
+    <nav class="navbar navbar-expand-lg  navbar-dark bg-primary fixed-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            {% if utilisateur == "conducteur" %}
+                <li class="nav-item">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'redirected_conducteur' username %}" style="color: #fff;">Dashboard</a></li>
+                </li>
+            {% elif utilisateur == "agent" %}
+                <li class="nav-item">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'redirected_agent' username %}" style="color: #fff;">Dashboard</a></li>
+                </li>
+            {% elif utilisateur == "centre" %} 
+                <li class="nav-item">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'redirected_centre' name %}" style="color: #fff;">Dashboard</a></li>
+                </li>
+            {% endif %}
+            
+            <li class="nav-item ">
+                <a class="nav-link" href="#blocs" style="color: #fff;">Blocs<span class="sr-only">(current)</span></a>
+              </li>
+
+            <li class="nav-item ">
+              <a class="nav-link" href="#footer" style="color: #fff;">About<span class="sr-only">(current)</span></a>
+            </li>
+
+            <li class="nav-item ">
+                <a class="nav-link" href="#curve" style="color: #fff;">Curve<span class="sr-only">(current)</span></a>
+              </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'accueil' %}" style="color: #fff;">Home</a>
+            </li>
+          </ul>
+        </div>
+    </nav>
+    
+    <div class="container-fluid" id="blocs" style="background-color: cyan; padding: 100px;">
+        <div class="row">
+            {% for b in blocs %}
+                <div class="col-lg-2">
+                    <!-- small box -->
+                    <div class="small-box bg-primary bloc" style="border-radius: 15px; border: solid black 2px; margin-bottom: 30px;">
+                        <div class="overlay">
+                            <button class="btn btn-primary"><a class="lien_bloc" href="{% url 'block' b.index %}"  style="color: #fff;"> Consulter </a></button>
+                        </div>
+                        <div class="inner" style="text-align:center">
+                            <h2 style="color: #fff;"><b> Bloc {{b.index}} </b></h2>
+                            <h3 style="color: #fff;"><b> Created at </b> {{b.date}} </h3>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+            <div class="col-lg-2">
+                <!-- small box -->
+                {% if new_block == 0 %}
+                <div class="small-box" style="border-radius: 15px; border: solid black 2px;">
+                {% else %}
+                <div class="small-box bg-warning" style="border-radius: 15px; border: solid black 2px;">
+                {% endif %}
+                    <div class="inner" style="text-align:center">
+                        {% if new_block == 0 %}
+                        <h3 style="color: #000;"><b> No new block created during the last {{minutes}} minute(s). </b></h3>
+                        {% else %}
+                        <h3 style="color: #000;"><b> New block created during the last minute. </b></h3>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="curve" class="offset-lg-3 col-lg-6" style="padding: 70px; margin-bottom: 100px; border:1px solid; background-color: #fff;">
+        <h2>Répartition des transactions selon les jours de la semaine</h2>		
+        <canvas id="diagramme" width="700" height="400"></canvas>
+    </div>
+
+    <footer class="footer-area" id="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-3  col-md-6 col-sm-6">
+                <div class="single-footer-widget">
+                <h6>A propos</h6>
+                <p>
+                  Ce site a été érigé dans le cadre du projet de base de données NoSQL, à l'Ecole Polytechnique de Thiès.
+                </p>
+                </div>
+            </div>   
+          </div>
+        <div class="footer-bottom">
+            <div class="row align-items-center">
+                <p class="col-lg-8 col-sm-12 footer-text m-0 text-center"> 
+                Copyright &copy;<script>document.write(new Date().getFullYear());</script></p>
+            </div>
+        </div>      
+    </footer>
+
+    <script>
+        function diagramme_rectangulaire( ) {
+				var canvas = document.getElementById('diagramme');
+				var context = canvas.getContext('2d');
+				
+				// Données statistiques
+				var nombre_transactions = {{nbre_trans}};
+				var jours = ['Lundi','Mardi','Mercredi','Jeudi','Vendredi','Samedi','Dimanche'];
+				
+				// Origine du repère
+				context.translate(150,320);
+				var x0 = 0;
+				var y0 = 0;
+				
+				var largeur_barre = 60;
+				context.lineWidth = '1.0';
+				
+				// Couleur et largeur du trait
+				context.fillStyle = '#000';
+				context.lineWidth = '1.0';
+				
+				// Axe des ordonnées
+				tracer (context,x0,y0,x0,-310);
+				// Flèche
+				tracer (context,x0-8,-300+3,x0,-300-10);
+				tracer (context,x0+8,-300+3,x0,-300-10);
+				
+				context.textAlign = 'center';
+				context.font = '9pt Tahoma';
+				var graduation = 0;
+				var pas = 1;
+				for (var i=0; i<13; i++) {
+					tracer (context,x0-3,y0-20*(i),x0+3,y0-20*(i));
+					graduation = pas*i;
+					context.fillText(graduation, (x0 - 20), (y0 - 20*i+4));
+				}
+				context.fillText('Nombre de transactions', (x0 -80), (y0 - 280));
+				
+				// Axe des abscisses
+				tracer (context,x0,y0,500,y0);
+				// Flèche
+				tracer (context,490-3,y0-8,490+10,y0);
+				tracer (context,490-3,y0+8,490+10,y0);
+				
+				context.textAlign = 'left';
+				context.fillText('Jours', x0 + canvas.width - 260, y0 + 60);
+				
+				context.lineWidth = '1.0';
+				// Tracée du diagramme rectangulaire, légende de l'axe des abscisses
+				for (i=0; i<nombre_transactions.length; i++) {
+					context.fillStyle = 'grey';				
+					context.beginPath();
+					context.rect(x0+10 + (i * largeur_barre) +5*i, 20* (y0 - nombre_transactions[i]), largeur_barre, 20*nombre_transactions[i]);
+					context.closePath();
+					context.stroke();
+					context.fill();
+					context.fillStyle = '#000';
+					var mesure_texte = context.measureText(jours[i]).width;
+					var centrer_texte = (largeur_barre - mesure_texte)/2;
+					context.fillText(jours[i], x0+10 +centrer_texte + (i * largeur_barre) + 5*i, y0 + 18);
+				}
+			}
+			// Fonction de tracer de trait
+			function tracer (ctx,x1,y1,x2,y2)  {
+				ctx.beginPath();
+				ctx.moveTo(x1, y1);
+				ctx.lineTo(x2, y2);
+				ctx.closePath();
+				ctx.stroke();
+			}
+			window.addEventListener('load', diagramme_rectangulaire, false);
+    </script>
+
+    <script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+    <script src="{% static 'js/blockchain.js' %}"></script>
+
+</body>
+</html>
